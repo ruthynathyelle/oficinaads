@@ -1,0 +1,8 @@
+<h1>Detalhes do Funcionário</h1>
+<p>Nome: {{ funcionario.nome }}</p>
+<p>CPF: {{ funcionario.cpf }}</p>
+<p>Cargo: {{ funcionario.cargo.nome }}</p>
+<p>Escolaridade: {{ funcionario.escolaridade.nome }}</p>
+<!-- Adicione mais campos conforme necessário -->
+<a href="{% url 'funcionarios_edit' funcionario.id %}">Editar</a>
+<a href="{% url 'funcionarios_list' %}">Voltar</a>

@@ -1,0 +1,32 @@
+<!-- templates/contas_receber/clientes_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Contas a Receber</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ordem de Serviço</th>
+                <th>Valor</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for conta in contas %}
+            <tr>
+                <td>{{ conta.ordem_servico }}</td>
+                <td>{{ conta.valor }}</td>
+                <td>
+                    <a href="{% url 'conta_receber_detalhe' conta.id %}" class="btn btn-info btn-sm">Ver Detalhes</a>
+                    <a href="{% url 'conta_receber_editar' conta.id %}" class="btn btn-warning btn-sm">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'conta_receber_create' %}" class="btn btn-primary mt-3">Adicionar Nova Conta</a>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Funcionários{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Lista de Funcionários</h1>
+    <a href="{% url 'funcionarios_create' %}" class="btn btn-primary mb-3">Adicionar Funcionário</a>
+    <ul class="list-group">
+        {% for funcionario in funcionarios %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'funcionarios_detail' funcionario.id %}">{{ funcionario.nome }}</a>
+                <div>
+                    <a href="{% url 'funcionarios_edit' funcionario.id %}" class="btn btn-sm btn-secondary">Editar</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

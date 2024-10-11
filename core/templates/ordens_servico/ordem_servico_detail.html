@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Detalhes da Ordem de Serviço - {{ ordem.id }}</h2>
+<p><strong>Cliente:</strong> {{ ordem.cliente }}</p>
+<p><strong>Técnico:</strong> {{ ordem.tecnico }}</p>
+<p><strong>Data:</strong> {{ ordem.data }}</p>
+<p><strong>Descrição do Problema:</strong> {{ ordem.descricao }}</p>
+<p><strong>Valor Total:</strong> {{ ordem.valor_total }}</p>
+
+<h3>Itens da Ordem de Serviço</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor Total do Item</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in ordem.itens.all %}
+        <tr>
+            <td>{{ item.produto }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td>{{ item.valor_total_item }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'ordem_servico_editar' ordem.id %}" class="btn btn-primary">Editar Ordem de Serviço</a>
+{% endblock %}

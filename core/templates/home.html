@@ -1,0 +1,28 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <!-- CSS do Bootstrap via CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Bem-vindo ao Sistema de Assistência Técnica!</h1>
+        <div class="text-center mt-4">
+            <a href="{% url 'clientes_list' %}" class="btn btn-primary m-2">Clientes</a>
+            <a href="{% url 'fornecedores_list' %}" class="btn btn-secondary m-2">Fornecedores</a>
+            <a href="{% url 'funcionarios_list' %}" class="btn btn-success m-2">Funcionários</a>
+            <a href="{% url 'ordem_servico_lista' %}" class="btn btn-warning m-2">Ordens de Serviço</a>
+            <a href="{% url 'conta_receber_lista' %}" class="btn btn-danger m-2">Contas a Receber</a>
+        </div>
+    </div>
+
+    <!-- JavaScript do Bootstrap e dependências via CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

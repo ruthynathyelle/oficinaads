@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Minha Oficina{% endblock %}</title>
+
+    <!-- CSS do Bootstrap via CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS para fixar o rodapé -->
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'home' %}">Minha Oficina</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'clientes_list' %}">Clientes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'fornecedores_list' %}">Fornecedores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'funcionarios_list' %}">Funcionários</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'ordem_servico_lista' %}">Ordens de Serviço</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'conta_receber_lista' %}">Contas a Receber</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <div class="container">
+            {% block content %}
+            <!-- Conteúdo específico de cada página vai aqui -->
+            {% endblock %}
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; {% now "Y" %} Minha Oficina - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript do Bootstrap e dependências via CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

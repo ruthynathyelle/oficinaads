@@ -1,0 +1,15 @@
+<!-- templates/contas_receber/formulario.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% if conta.id %}Editar Conta a Receber{% else %}Adicionar Nova Conta a Receber{% endif %}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+</form>
+
+<a href="{% url 'conta_receber_lista' %}">Cancelar</a>
+{% endblock %}

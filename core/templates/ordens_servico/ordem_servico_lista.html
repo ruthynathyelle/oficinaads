@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Ordens de Serviço</h2>
+<a href="{% url 'ordem_servico_create' %}" class="btn btn-primary">Nova Ordem de Serviço</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Técnico</th>
+            <th>Data</th>
+            <th>Valor Total</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ordem in ordens %}
+        <tr>
+            <td>{{ ordem.id }}</td>
+            <td>{{ ordem.cliente }}</td>
+            <td>{{ ordem.tecnico }}</td>
+            <td>{{ ordem.data }}</td>
+            <td>{{ ordem.valor_total }}</td>
+            <td>
+                <a href="{% url 'ordem_servico_detalhe' ordem.id %}" class="btn btn-info btn-sm">Detalhes</a>
+                <a href="{% url 'ordem_servico_editar' ordem.id %}" class="btn btn-warning btn-sm">Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% if ordem.id %}Editar{% else %}Nova{% endif %} Ordem de Serviço</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <h3>Itens da Ordem de Serviço</h3>
+    <div id="item-forms">
+        {% for form in item_forms %}
+            {{ form.as_p }}
+        {% endfor %}
+    </div>
+
+    <button type="button" class="btn btn-secondary" id="add-item">Adicionar Item</button>
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
+
+<script>
+    document.getElementById('add-item').addEventListener('click', function() {
+        // Lógica para adicionar mais itens ao formulário (AJAX ou JavaScript)
+    });
+</script>
+{% endblock %}

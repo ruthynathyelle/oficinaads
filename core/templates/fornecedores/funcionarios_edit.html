@@ -1,0 +1,6 @@
+<h1>Detalhes do Fornecedor</h1>
+<p>Nome: {{ fornecedor.nome }}</p>
+<p>CNPJ: {{ fornecedor.cnpj }}</p>
+<!-- Adicione mais campos conforme necessário -->
+<a href="{% url 'fornecedores_edit' fornecedor.id %}">Editar</a>
+<a href="{% url 'fornecedores_list' %}">Voltar</a>
